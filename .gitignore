@@ -1,0 +1,14 @@
+.DS_Store
+.claude/settings.local.json
+
+# Сирі фото/відео не йдуть у репозиторій — сайт використовує лише перелічені нижче
+assets/*
+!assets/after.jpg
+!assets/before.jpg
+!assets/feature.jpg
+!assets/gallery-3.jpg
+!assets/gallery-5.jpg
+!assets/gallery-6.jpg
+!assets/hero-detail.jpg
+!assets/hero.jpg
+!assets/master.jpg

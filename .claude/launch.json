@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "meche-static",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd '/private/tmp/claude-501/-Users-karina-Documents----/4945548f-9b43-493d-9124-321c1f39a440/scratchpad/meche-preview' && exec python3 -m http.server 4173"],
+      "port": 4173
+    }
+  ]
+}

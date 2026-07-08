@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Giveaway — Keratin Studio by Alina Kharchenko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --serif:"Playfair Display", Georgia, serif;
+    --sans:"Inter", system-ui, sans-serif;
+    --bg:#211E1A; --cream:#F6F3EE; --ink:#2A2521;
+    --gold:#B8945A; --gold-2:#CBA876; --muted:#8C8475;
+    --paper:#F4EFE6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0e0d0b;display:grid;place-items:center;min-height:100vh;font-family:var(--sans);}
+
+  .canvas{
+    position:relative;width:1080px;height:1350px;overflow:hidden;
+    background:var(--bg);
+    background-image:
+      radial-gradient(900px 700px at 78% 18%, rgba(184,148,90,.20), transparent 65%),
+      radial-gradient(700px 600px at 8% 96%, rgba(184,148,90,.10), transparent 60%);
+  }
+
+  /* grain */
+  .canvas::after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ── logo, top-left ── */
+  .logo{position:absolute;left:72px;top:64px;z-index:6;color:var(--cream);}
+  .logo b{display:block;font-family:var(--serif);font-weight:500;font-size:30px;letter-spacing:.02em;}
+  .logo span{display:block;font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-2);margin-top:6px;}
+
+  /* ── eyebrow ── */
+  .eyebrow{
+    position:absolute;left:72px;top:196px;z-index:6;
+    display:flex;align-items:center;gap:16px;
+    font-size:15px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+  }
+  .eyebrow::before{content:"";width:56px;height:1px;background:var(--gold);}
+
+  /* ── small gold cluster (like yellow text in reference) ── */
+  .cluster{
+    position:absolute;left:72px;top:472px;z-index:6;width:400px;
+    font-size:26px;line-height:1.5;font-weight:300;color:var(--gold-2);
+  }
+  .cluster em{font-family:var(--serif);font-style:italic;color:var(--cream);}
+
+  /* ══ TICKETS ══ */
+  .ticket-wrap{position:absolute;right:-70px;top:-110px;z-index:4;}
+
+  /* barcode stub peeking behind */
+  .stub{
+    position:absolute;left:-150px;top:120px;width:250px;height:560px;
+    background:var(--paper);transform:rotate(-4deg);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.6);
+    display:flex;align-items:flex-end;justify-content:center;padding-bottom:44px;
+  }
+  .barcode{display:flex;align-items:stretch;height:170px;transform:rotate(90deg);}
+  .barcode i{background:#3a352e;margin-right:4px;}
+  .barcode i:nth-child(1){width:7px}.barcode i:nth-child(2){width:3px}
+  .barcode i:nth-child(3){width:11px}.barcode i:nth-child(4){width:3px}
+  .barcode i:nth-child(5){width:5px}.barcode i:nth-child(6){width:13px}
+  .barcode i:nth-child(7){width:3px}.barcode i:nth-child(8){width:8px}
+  .barcode i:nth-child(9){width:3px}.barcode i:nth-child(10){width:5px}
+  .barcode i:nth-child(11){width:12px}.barcode i:nth-child(12){width:4px}
+  .barcode i:nth-child(13){width:7px}.barcode i:nth-child(14){width:3px}
+  .barcode i:nth-child(15){width:10px}.barcode i:nth-child(16){width:4px}
+
+  /* main certificate */
+  .ticket{
+    position:relative;width:470px;height:820px;
+    background:var(--paper);transform:rotate(9deg);
+    box-shadow:0 60px 120px -40px rgba(0,0,0,.7);
+    padding:150px 40px 0 44px;
+  }
+  /* torn / perforated bottom edge */
+  .ticket::after{
+    content:"";position:absolute;left:0;right:0;bottom:-16px;height:16px;
+    background:
+      radial-gradient(circle at 12px 0, var(--paper) 11px, transparent 12px);
+    background-size:24px 16px;background-repeat:repeat-x;
+  }
+  .ticket .perf{
+    position:absolute;left:24px;right:24px;bottom:96px;
+    border-top:2px dashed rgba(42,37,33,.35);
+  }
+  .ticket .perf::before,.ticket .perf::after{
+    content:"";position:absolute;top:-14px;width:28px;height:28px;border-radius:50%;
+    background:var(--bg);
+  }
+  .ticket .perf::before{left:-38px;}
+  .ticket .perf::after{right:-38px;}
+
+  .t-vertical{
+    position:absolute;left:34px;top:118px;
+    writing-mode:vertical-rl;
+    font-family:var(--serif);font-weight:600;font-size:74px;letter-spacing:.06em;
+    color:var(--ink);line-height:1;
+  }
+  .t-date{
+    position:absolute;right:40px;top:52px;
+    writing-mode:vertical-rl;
+    font-size:20px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);
+  }
+  .t-photo{
+    position:absolute;right:44px;top:210px;width:220px;height:220px;
+    object-fit:cover;object-position:60% 30%;
+    box-shadow:0 18px 44px -20px rgba(33,30,26,.5);
+  }
+  .t-label{
+    position:absolute;right:96px;top:452px;width:220px;
+    font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);line-height:1.9;
+  }
+  .t-seal{
+    position:absolute;right:52px;bottom:150px;width:108px;height:108px;border-radius:50%;
+    border:1.5px solid var(--gold);display:grid;place-items:center;
+    font-family:var(--serif);font-size:34px;color:var(--gold);
+    transform:rotate(-12deg);
+  }
+  .t-seal::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px dashed var(--gold);opacity:.6;}
+  .t-no{
+    position:absolute;left:150px;bottom:34px;
+    font-size:16px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ── headline ── */
+  .headline{position:absolute;left:64px;bottom:250px;z-index:6;line-height:.98;}
+  .headline .l1{
+    font-family:var(--serif);font-weight:500;font-size:168px;letter-spacing:.01em;
+    color:var(--cream);
+  }
+  .headline .l2{
+    font-family:var(--serif);font-style:italic;font-weight:400;font-size:132px;
+    color:var(--gold-2);margin-left:8px;
+  }
+
+  /* ── bottom-right caption ── */
+  .caption{
+    position:absolute;right:72px;bottom:96px;z-index:6;width:430px;text-align:right;
+    font-size:28px;font-weight:300;line-height:1.45;color:var(--cream);
+  }
+  .caption em{font-family:var(--serif);font-style:italic;color:var(--gold-2);}
+
+  /* ── bottom-left meta ── */
+  .meta{
+    position:absolute;left:72px;bottom:100px;z-index:6;
+    font-size:15px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);line-height:2.1;
+  }
+  .meta b{color:var(--gold);font-weight:500;}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <div class="logo">
+    <b>Keratin Studio</b>
+    <span>by Alina Kharchenko</span>
+  </div>
+
+  <div class="eyebrow">Giveaway · Розіграш</div>
+
+  <div class="cluster">
+    кератин, ботокс, холодне відновлення або тотальна реконструкція&nbsp;—
+    <em>процедуру обираємо разом</em>
+  </div>
+
+  <div class="ticket-wrap">
+    <div class="stub">
+      <div class="barcode"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="ticket">
+      <div class="t-vertical">Сертифікат</div>
+      <img class="t-photo" src="../assets/after.jpg" alt="">
+      <div class="t-label">на одну процедуру відновлення волосся</div>
+      <div class="t-seal">KS</div>
+      <div class="perf"></div>
+      <div class="t-no">№ 001 / 2026</div>
+    </div>
+  </div>
+
+  <div class="headline">
+    <div class="l1">ДАРУЄМО</div>
+    <div class="l2">відновлення</div>
+  </div>
+
+  <div class="meta">
+    <b>@kharchenko.keratin</b><br>
+    умови розіграшу — в дописі
+  </div>
+
+  <div class="caption">
+    твоєму волоссю — <em>сяйво,</em><br>
+    тобі — процедура <em>у подарунок</em>
+  </div>
+
+</div>
+</body>
+</html>
