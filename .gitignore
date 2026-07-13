@@ -5,9 +5,7 @@
 assets/*
 !assets/after.jpg
 !assets/before.jpg
-!assets/feature.jpg
 !assets/gallery-3.jpg
-!assets/gallery-5.jpg
 !assets/gallery-6.jpg
 !assets/hero-detail.jpg
 !assets/hero.jpg
@@ -16,11 +14,8 @@ assets/*
 !assets/master-main.jpg
 !assets/shop.jpg
 !assets/work-1.jpg
-!assets/work-2.jpg
-!assets/work-3.jpg
 !assets/work-4.jpg
 !assets/work-7.jpg
-!assets/work-8.jpg
 !assets/work-9.jpg
 !assets/process-1.jpg
 !assets/process-2.jpg
