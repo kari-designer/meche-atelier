@@ -94,7 +94,8 @@
   .js img.fx{opacity:0;transition:opacity .8s var(--ease);}
   .js img.fx.ok{opacity:1;}
   /* thin gold reading-progress line above the header */
-  .scroll-progress{position:fixed;top:0;left:0;z-index:300;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));pointer-events:none;}
+  /* progress line animates via scaleX (composited); width changes would relayout every frame */
+  .scroll-progress{position:fixed;top:0;left:0;z-index:300;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--gold),var(--gold-2));pointer-events:none;will-change:transform;}
 
   /* ---- themed motion: silk shine, gold shimmer, drifting glow ---- */
 
@@ -105,9 +106,8 @@
   .js .reveal .eyebrow::before{transform:scaleX(0);transition:transform .9s var(--ease) .25s;}
   .js .reveal.in .eyebrow::before{transform:scaleX(1);}
 
-  /* gold shimmer on accent words: like light gliding along hair */
-  .u-accent{background:linear-gradient(100deg,var(--gold) 25%,#E8D2A6 50%,var(--gold) 75%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite;}
-  @keyframes shimmer{to{background-position:200% 0;}}
+  /* static gold gradient on accent words (an animated background-position here repaints text every frame) */
+  .u-accent{background:linear-gradient(100deg,var(--gold) 20%,#E8D2A6 50%,var(--gold) 80%);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
   /* silk light sweep across large photos */
   .hero__photo--main,.master__photo,.shop__photo{position:relative;}
@@ -154,7 +154,8 @@
   .icon{width:20px;height:20px;}
 
   /* ===== HEADER ===== */
-  .header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);transition:box-shadow var(--dur) var(--ease);}
+  /* no backdrop-filter: it forces a re-blur of everything under the sticky header on every scrolled frame */
+  .header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 97%,transparent);border-bottom:1px solid var(--border);transition:box-shadow var(--dur) var(--ease);}
   .header.scrolled{box-shadow:0 12px 32px -20px rgba(33,30,26,.3);}
   .header__actions{display:flex;align-items:center;gap:var(--s3);}
   .header__icon{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--ink);transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease),transform var(--dur) var(--ease);}
@@ -190,9 +191,22 @@
   .hero__photo--main{aspect-ratio:4/5;}
   .hero__photo--detail{position:absolute;right:calc(-1*var(--s6));bottom:calc(-1*var(--s6));width:42%;aspect-ratio:1/1;border:6px solid var(--bg);border-radius:var(--radius-md);}
 
-  /* ===== INTRO (dark) ===== */
-  .intro__text{max-width:26ch;margin-inline:auto;text-align:center;font-family:var(--serif);font-weight:400;font-size:var(--t-xl);line-height:var(--lh-snug);letter-spacing:var(--tr-tight);color:var(--on-dark);}
+  /* ===== TICKER: running line of services, seamless transform loop ===== */
+  .ticker{overflow:hidden;padding-block:var(--s4);border-block:1px solid var(--border);background:var(--surface);}
+  .ticker__track{display:flex;align-items:baseline;gap:var(--s8);width:max-content;animation:ticker-flow 32s linear infinite;will-change:transform;}
+  .ticker:hover .ticker__track{animation-play-state:paused;}
+  .ticker__item{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,2.4vw,2.1rem);line-height:1.2;white-space:nowrap;color:var(--ink);}
+  .ticker__item--ghost{color:transparent;-webkit-text-stroke:1px var(--gold);}
+  .ticker__dot{color:var(--gold);}
+  @keyframes ticker-flow{to{transform:translateX(calc(-50% - var(--s8)/2));}}
+
+  /* ===== INTRO (dark): editorial statement with inline photo chips ===== */
+  .intro__text{max-width:26ch;margin-inline:auto;text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:var(--lh-snug);letter-spacing:var(--tr-tight);color:var(--on-dark);}
   .intro__text .intro__lead{color:var(--gold-2);}
+  .intro__chip{display:inline-block;width:clamp(48px,5.5vw,84px);aspect-ratio:1;margin:0 10px;border-radius:16px;overflow:hidden;vertical-align:-16%;transform:rotate(-7deg);box-shadow:var(--shadow-md);transition:transform var(--dur) var(--ease);}
+  .intro__chip--r{transform:rotate(6deg);}
+  .intro__chip:hover{transform:rotate(0deg) scale(1.15);}
+  .intro__chip img{width:100%;height:100%;object-fit:cover;}
 
   /* ===== SERVICES ===== */
   .services__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);align-items:stretch;}
@@ -221,11 +235,11 @@
   .works__tile:hover img{transform:scale(1.06);}
   .works__label{position:absolute;left:0;right:0;bottom:0;z-index:1;display:flex;justify-content:space-between;align-items:baseline;padding:var(--s8) var(--s4) var(--s4);background:linear-gradient(180deg,transparent,rgba(18,15,12,.66));color:#fff;font-size:var(--t-xs);letter-spacing:var(--tr-wide);text-transform:uppercase;}
   .works__label span:last-child{color:var(--gold-2);}
-  .works__insta{grid-column:2/4;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--s2);padding:clamp(var(--s6),2.5vw,var(--s8));background:var(--dark);border-radius:var(--radius-md);color:var(--on-dark);transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);}
+  .works__insta{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--s2);padding:clamp(var(--s4),2vw,var(--s6));background:var(--dark);border-radius:var(--radius-md);color:var(--on-dark);transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);}
   .works__insta::before{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(203,168,118,.28),transparent 70%);}
   .works__insta:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-  .works__insta .icon{width:26px;height:26px;color:var(--gold-2);}
-  .works__insta strong{font-family:var(--serif);font-weight:500;font-size:var(--t-lg);line-height:var(--lh-snug);}
+  .works__insta .icon{width:24px;height:24px;color:var(--gold-2);}
+  .works__insta strong{font-family:var(--serif);font-weight:500;font-size:clamp(1.05rem,1.3vw,1.3rem);line-height:var(--lh-snug);overflow-wrap:anywhere;}
   .works__insta p{font-size:var(--t-sm);color:color-mix(in srgb,var(--on-dark) 64%,transparent);}
   .works__insta-cta{margin-top:var(--s2);font-size:var(--t-xs);font-weight:500;letter-spacing:var(--tr-wide);text-transform:uppercase;color:var(--gold-2);}
 
@@ -377,8 +391,10 @@
     .services__grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto;}
     .service__title{min-height:0;}
     .service__text{min-height:0;}
-    .works__layout{grid-template-columns:1fr 1fr;}
-    .works__insta{grid-column:1/-1;}
+    .works__layout{grid-template-columns:1fr 1fr;grid-template-rows:none;}
+    .works__tile{aspect-ratio:4/5;}
+    .works__tile--feature{grid-row:auto;grid-column:1/-1;aspect-ratio:16/9;}
+    .works__insta{grid-column:auto;min-height:220px;}
     .timeline{grid-template-columns:repeat(2,1fr);row-gap:var(--s8);}
     .shop__grid{grid-template-columns:1fr;}
     .shop__photo{position:static;max-width:440px;}
@@ -406,7 +422,7 @@
     .works__layout{display:flex;flex-direction:column;}
     .works__tile{aspect-ratio:4/5;}
     .works__tile--feature{aspect-ratio:4/5;}
-    .works__tile:nth-of-type(3){display:none;}
+    .works__tile:nth-of-type(3),.works__tile:nth-of-type(4){display:none;}
     .studio__grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
     .studio__item{aspect-ratio:3/4;}
     .studio__item--tall{grid-row:auto;}
@@ -517,10 +533,26 @@
   </section>
 
 
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span class="ticker__item">Кератин</span><span class="ticker__dot">·</span>
+      <span class="ticker__item ticker__item--ghost">Ботокс</span><span class="ticker__dot">·</span>
+      <span class="ticker__item">Тотальна реконструкція</span><span class="ticker__dot">·</span>
+      <span class="ticker__item ticker__item--ghost">Холодне відновлення R3</span><span class="ticker__dot">·</span>
+      <span class="ticker__item">Домашній догляд</span><span class="ticker__dot">·</span>
+      <span class="ticker__item">Кератин</span><span class="ticker__dot">·</span>
+      <span class="ticker__item ticker__item--ghost">Ботокс</span><span class="ticker__dot">·</span>
+      <span class="ticker__item">Тотальна реконструкція</span><span class="ticker__dot">·</span>
+      <span class="ticker__item ticker__item--ghost">Холодне відновлення R3</span><span class="ticker__dot">·</span>
+      <span class="ticker__item">Домашній догляд</span><span class="ticker__dot">·</span>
+    </div>
+  </div>
+
   <!-- INTRO (dark) -->
   <section class="intro section section--dark">
     <div class="container">
-      <p class="intro__text reveal"><span class="intro__lead">Keratin Studio</span> більше, ніж салон. Це студія, повністю присвячена науці та ніжності відновлення волосся.</p>
+      <p class="intro__text reveal"><span class="intro__lead">Keratin Studio</span> більше, ніж <span class="intro__chip" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/hero-detail.jpg" alt="" /></span> салон. Це студія, присвячена <span class="intro__chip intro__chip--r" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/work-9.jpg" alt="" /></span> науці та ніжності <span class="intro__chip" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/shop.jpg" alt="" /></span> відновлення волосся.</p>
     </div>
   </section>
 
@@ -636,7 +668,11 @@
           <img loading="lazy" decoding="async" src="assets/work-1.jpg" alt="Усміхнена клієнтка зі здоровим сяючим волоссям" />
           <span class="works__label"><span>Здоровий блиск</span><span>03</span></span>
         </a>
-        <a class="works__insta reveal reveal--zoom" style="--d:3" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener">
+        <a class="works__tile reveal reveal--photo" style="--d:3" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" aria-label="Дзеркальне полотно: дивитись в Instagram">
+          <img loading="lazy" decoding="async" src="assets/work-4.jpg" alt="Дзеркально гладке волосся після процедури, вид ззаду" />
+          <span class="works__label"><span>Дзеркальне полотно</span><span>04</span></span>
+        </a>
+        <a class="works__insta reveal reveal--zoom" style="--d:4" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
           <strong>@keratin_studio.romny</strong>
           <p>Нові роботи, процеси та «до/після» щодня в стрічці та сторіз.</p>
@@ -1078,10 +1114,12 @@
   document.body.appendChild(bar);
   var header = document.querySelector(".header");
   var ticking = false;
+  var wasScrolled = false;
   var onScroll = function(){
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
-    if (header){ header.classList.toggle("scrolled", window.scrollY > 12); }
+    bar.style.transform = "scaleX(" + (max > 0 ? window.scrollY / max : 0) + ")";
+    var scrolled = window.scrollY > 12;
+    if (header && scrolled !== wasScrolled){ wasScrolled = scrolled; header.classList.toggle("scrolled", scrolled); }
     ticking = false;
   };
   window.addEventListener("scroll", function(){
