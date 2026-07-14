@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kari-designer.github.io/meche-atelier/sitemap.xml
