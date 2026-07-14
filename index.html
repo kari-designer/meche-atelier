@@ -1,4 +1,6 @@
- <head>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Cm_oZkR9vWf28dd9o2nhq8rt5_rmZxtpWllad5zCADc" />
@@ -7,7 +9,10 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#14162A" />
   <link rel="canonical" href="https://kari-designer.github.io/meche-atelier/" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314162A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23CBA876' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -18,6 +23,7 @@
   <meta property="og:image" content="https://kari-designer.github.io/meche-atelier/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Дзеркально гладке відновлене волосся, робота Keratin Studio" />
   <meta property="og:locale" content="uk_UA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Keratin Studio by Alina Kharchenko · кератин і відновлення волосся, Ромни" />
@@ -51,10 +57,72 @@
       "opens": "10:00",
       "closes": "20:00"
     },
-    "priceRange": "₴₴",
+    "priceRange": "1450–4050 UAH",
+    "currenciesAccepted": "UAH",
+    "founder": {
+      "@type": "Person",
+      "name": "Alina Kharchenko",
+      "jobTitle": "Майстер відновлення волосся"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Послуги відновлення волосся",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "Кератин і ботокс волосся"},
+          "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1450, "maxPrice": 3450, "priceCurrency": "UAH"}
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "Тотальна реконструкція волосся"},
+          "priceSpecification": {"@type": "PriceSpecification", "minPrice": 2050, "maxPrice": 4050, "priceCurrency": "UAH"}
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {"@type": "Service", "name": "Холодне відновлення Full Force R3"},
+          "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1550, "maxPrice": 2350, "priceCurrency": "UAH"}
+        }
+      ]
+    },
     "sameAs": [
       "https://www.instagram.com/keratin_studio.romny/",
       "https://t.me/alinakharchenko2"
+    ]
+  }
+  </script>
+
+  <!-- Structured data: FAQ rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Скільки тримається результат?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Залежно від процедури та типу волосся результат зберігається від 3 до 6 місяців. Кератин і реконструкція зазвичай тримаються найдовше, особливо з домашнім доглядом."}
+      },
+      {
+        "@type": "Question",
+        "name": "Чи безпечні ваші формули?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Так. Використовуються виключно засоби без формальдегіду, безпечні для чутливої шкіри голови. Діагностика підтверджує правильний вибір саме для вас."}
+      },
+      {
+        "@type": "Question",
+        "name": "Яка процедура підійде саме мені?",
+        "acceptedAnswer": {"@type": "Answer", "text": "На це відповідає консультація з діагностикою: оцінюється пористість, ступінь пошкодження та ваші цілі, перш ніж рекомендувати кератин, ботокс чи реконструкцію."}
+      },
+      {
+        "@type": "Question",
+        "name": "Як підготуватися до візиту?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Приходьте з чистою головою: вимийте волосся лише шампунем, без масок, кондиціонерів, олійок, спреїв та стайлінгу. Так склад ляже рівномірно, а результат буде максимальним."}
+      },
+      {
+        "@type": "Question",
+        "name": "Чи можна відновити пошкоджене волосся?",
+        "acceptedAnswer": {"@type": "Answer", "text": "У більшості випадків так. Тотальна реконструкція створена саме для перевантаженого та крихкого волосся, відновлюючи внутрішні звʼязки заради сили та блиску."}
+      }
     ]
   }
   </script>
@@ -529,10 +597,10 @@
       </nav>
 
       <div class="header__actions">
-        <a href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" class="header__icon" aria-label="Instagram">
+        <a href="https://www.instagram.com/keratin_studio.romny/" class="header__icon" aria-label="Instagram">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
         </a>
-        <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="header__icon" aria-label="Telegram">
+        <a href="https://t.me/alinakharchenko2" class="header__icon" aria-label="Telegram">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z" /><path d="M8 13l9-6-6 7" /></svg>
         </a>
         <a href="#booking" class="btn header__cta">Записатися</a>
@@ -561,7 +629,7 @@
           <h1 class="hero__title reveal">Мистецтво <span class="u-accent">відновлення</span> волосся</h1>
           <p class="hero__lead reveal" style="--d:1">Студія, де пошкоджене волосся відновлюється пасмо за пасмом за допомогою кератину, ботоксу та реконструкції. Здоровий блиск, що триває, підібраний саме для вас.</p>
           <div class="hero__actions reveal" style="--d:2">
-            <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="btn">Записатися <span class="arrow">↗</span></a>
+            <a href="https://t.me/alinakharchenko2" class="btn">Записатися <span class="arrow">↗</span></a>
             <a href="#services" class="btn btn--ghost">Дивитись ціни</a>
           </div>
         </div>
@@ -682,23 +750,23 @@
       </header>
 
       <div class="works__layout">
-        <a class="works__tile works__tile--feature reveal reveal--photo" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" aria-label="Кератин і ботокс: дивитись в Instagram">
+        <a class="works__tile works__tile--feature reveal reveal--photo" href="https://www.instagram.com/keratin_studio.romny/" aria-label="Кератин і ботокс: дивитись в Instagram">
           <img loading="lazy" decoding="async" src="assets/work-7.jpg" alt="Довге пряме волосся після кератину" />
           <span class="works__label"><span>Кератин і ботокс</span><span>01</span></span>
         </a>
-        <a class="works__tile reveal reveal--photo" style="--d:1" href="https://www.instagram.com/reel/Das_AUaN63w/" target="_blank" rel="noopener" aria-label="Тотальна реконструкція: дивитись Reels в Instagram">
+        <a class="works__tile reveal reveal--photo" style="--d:1" href="https://www.instagram.com/reel/Das_AUaN63w/" aria-label="Тотальна реконструкція: дивитись Reels в Instagram">
           <img loading="lazy" decoding="async" src="assets/after.jpg" alt="Результат відновлення волосся" />
           <span class="works__label"><span>Тотальна реконструкція</span><span>02</span></span>
         </a>
-        <a class="works__tile reveal reveal--photo" style="--d:2" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" aria-label="Здоровий блиск: дивитись в Instagram">
+        <a class="works__tile reveal reveal--photo" style="--d:2" href="https://www.instagram.com/keratin_studio.romny/" aria-label="Здоровий блиск: дивитись в Instagram">
           <img loading="lazy" decoding="async" src="assets/work-1.jpg" alt="Усміхнена клієнтка зі здоровим сяючим волоссям" />
           <span class="works__label"><span>Здоровий блиск</span><span>03</span></span>
         </a>
-        <a class="works__tile reveal reveal--photo" style="--d:3" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" aria-label="Дзеркальне полотно: дивитись в Instagram">
+        <a class="works__tile reveal reveal--photo" style="--d:3" href="https://www.instagram.com/keratin_studio.romny/" aria-label="Дзеркальне полотно: дивитись в Instagram">
           <img loading="lazy" decoding="async" src="assets/work-4.jpg" alt="Дзеркально гладке волосся після процедури, вид ззаду" />
           <span class="works__label"><span>Дзеркальне полотно</span><span>04</span></span>
         </a>
-        <a class="works__insta reveal reveal--zoom" style="--d:4" href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener">
+        <a class="works__insta reveal reveal--zoom" style="--d:4" href="https://www.instagram.com/keratin_studio.romny/">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
           <strong>@keratin_studio.romny</strong>
           <p>Нові роботи, процеси та «до/після» щодня в стрічці та сторіз.</p>
@@ -867,7 +935,7 @@
           <li><strong>Діагностика</strong><span>перед кожною процедурою</span></li>
         </ul>
 
-        <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="btn">Записатися <span class="arrow">↗</span></a>
+        <a href="https://t.me/alinakharchenko2" class="btn">Записатися <span class="arrow">↗</span></a>
       </div>
     </div>
   </section>
@@ -964,7 +1032,7 @@
       </div>
 
       <p class="catalog__note reveal">Ціни вказані з офіційних сайтів брендів станом на липень 2026 року. Наявність та актуальну вартість підтверджую при замовленні.</p>
-      <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="btn btn--light shop__cta reveal">Замовити в Telegram <span class="arrow">↗</span></a>
+      <a href="https://t.me/alinakharchenko2" class="btn btn--light shop__cta reveal">Замовити в Telegram <span class="arrow">↗</span></a>
       </div>
       </div>
     </div>
@@ -983,7 +1051,7 @@
       <div class="accordion reveal">
         <details class="accordion__item" name="faq" open>
           <summary class="accordion__summary">Скільки тримається результат?</summary>
-          <div class="accordion__body"><p>Залежно від процедури та типу волосся результат зберігається від 2 до 5 місяців. Кератин і реконструкція зазвичай тримаються найдовше, особливо з домашнім доглядом.</p></div>
+          <div class="accordion__body"><p>Залежно від процедури та типу волосся результат зберігається від 3 до 6 місяців. Кератин і реконструкція зазвичай тримаються найдовше, особливо з домашнім доглядом.</p></div>
         </details>
         <details class="accordion__item" name="faq">
           <summary class="accordion__summary">Чи безпечні ваші формули?</summary>
@@ -1028,7 +1096,7 @@
             <option>Холодне відновлення R3</option>
           </select>
         </div>
-        <a id="bookLink" href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="btn btn--light btn--full">Написати в Telegram</a>
+        <a id="bookLink" href="https://t.me/alinakharchenko2" class="btn btn--light btn--full">Написати в Telegram</a>
       </form>
     </div>
   </section>
@@ -1045,10 +1113,10 @@
           </a>
           <p class="footer__about">Відновлення волосся з турботою. Студія для здорового, сяючого волосся.</p>
           <div class="social">
-            <a href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" class="social__link" aria-label="Instagram">
+            <a href="https://www.instagram.com/keratin_studio.romny/" class="social__link" aria-label="Instagram">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
             </a>
-            <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="social__link" aria-label="Telegram">
+            <a href="https://t.me/alinakharchenko2" class="social__link" aria-label="Telegram">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z" /><path d="M8 13l9-6-6 7" /></svg>
             </a>
           </div>
@@ -1068,8 +1136,8 @@
         <div class="footer__col">
           <h4 class="footer__heading">Контакти</h4>
           <p>
-            <a href="https://www.instagram.com/keratin_studio.romny/" target="_blank" rel="noopener" class="footer__link">@keratin_studio.romny</a><br />
-            <a href="https://t.me/alinakharchenko2" target="_blank" rel="noopener" class="footer__link">Написати в Telegram</a>
+            <a href="https://www.instagram.com/keratin_studio.romny/" class="footer__link">@keratin_studio.romny</a><br />
+            <a href="https://t.me/alinakharchenko2" class="footer__link">Написати в Telegram</a>
           </p>
         </div>
       </div>
