@@ -22,6 +22,12 @@ assets/*
 !assets/work-4.jpg
 !assets/work-7.jpg
 !assets/work-9.jpg
+!assets/work-10.jpg
+!assets/work-11.jpg
+!assets/work-12.jpg
+
+# Рекламні креативи — не частина сайту
+karusel-keratin/
 !assets/process-1.jpg
 !assets/process-2.jpg
 !assets/process-3.jpg
