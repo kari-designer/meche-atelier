@@ -179,8 +179,8 @@
   }
 
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-  body{font-family:var(--sans);font-weight:400;font-size:var(--t-md);line-height:var(--lh-normal);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip;}
+  body{font-family:var(--sans);font-weight:400;font-size:var(--t-md);line-height:var(--lh-normal);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;}
   img{display:block;max-width:100%;height:auto;}
   a{color:inherit;text-decoration:none;}
   ul,ol{list-style:none;}
@@ -549,6 +549,8 @@
     /* mobile hero: text only: no meta strip, no photo */
     .hero__meta{display:none;}
     .hero__media{display:none;}
+    /* mobile intro: plain statement, no inline photo chips */
+    .intro__chip{display:none;}
     .why__item{grid-template-columns:64px 1fr;gap:var(--s3) var(--s4);padding:var(--s4) 0;}
     .why__text{grid-column:2;}
     /* process becomes a swipeable snap slider */
