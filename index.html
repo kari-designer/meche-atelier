@@ -424,6 +424,11 @@
   .review--dark .review__avatar{background:color-mix(in srgb,var(--on-dark) 10%,transparent);color:var(--gold-2);}
   .review--dark:hover{border-color:var(--dark);}
   .review--tint{background:color-mix(in srgb,var(--gold) 9%,var(--surface));border-color:color-mix(in srgb,var(--gold) 28%,var(--border));}
+  .review__link{display:contents;color:inherit;text-decoration:none;}
+  .review__link:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:var(--radius-md);}
+  .review__source{font-size:var(--t-xs);letter-spacing:.04em;color:var(--gold);}
+  .review--dark .review__source{color:var(--gold-2);}
+  .reviews__cta{display:flex;justify-content:center;margin-top:clamp(var(--s6),3vw,var(--s8));}
 
   /* ===== MASTER ===== */
   .master__grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(var(--s8),4vw,var(--s16));align-items:center;}
@@ -871,40 +876,56 @@
       <div class="reviews__layout">
         <figure class="reviews__feature reveal reveal--left">
           <span class="reviews__mark" aria-hidden="true">«</span>
-          <blockquote class="reviews__featured-quote">Аліна врятувала моє волосся після невдалого освітлення в іншому салоні. Ніжна атмосфера, акуратна робота і помітний результат одразу.</blockquote>
-          <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">І</span><span class="review__person"><strong>Ірина Бондаренко</strong><em>Тотальна реконструкція</em></span></figcaption>
+          <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Ілони Руденко на Google Maps">
+          <blockquote class="reviews__featured-quote">Дуже задоволена результатом! Волосся стало гладеньким, блискучим і неймовірно приємним на дотик. Майстер уважна, професійна та все детально пояснила. Атмосфера в студії комфортна, а сервіс — на найвищому рівні.</blockquote>
+          <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">І</span><span class="review__person"><strong>Ілона Руденко</strong><em>Google Maps</em></span></figcaption>
+          </a>
           <div class="reviews__score">
             <strong>5.0</strong>
             <div>
               <div class="reviews__stars" aria-hidden="true">★★★★★</div>
-              <p>за відгуками клієнток</p>
+              <p>Відгуків: 6 · Google Maps</p>
             </div>
           </div>
         </figure>
 
         <div class="reviews__grid">
           <figure class="review reveal">
-            <blockquote class="review__quote">Волосся після ботоксу наче ожило: мʼяке, блискуче та слухняне. Аліна підібрала догляд саме під мою структуру.</blockquote>
-            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">О</span><span class="review__person"><strong>Олена Коваль</strong><em>Кератин і ботокс</em></span></figcaption>
+            <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Каміли Хоменко на Google Maps">
+            <blockquote class="review__quote">Я в захваті від результату! Волосся супер блискуче та рівненьке, в студії затишно і окремий лайк за український стиль.</blockquote>
+            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">К</span><span class="review__person"><strong>Каміла Хоменко</strong><em>Google Maps ↗</em></span></figcaption>
+            </a>
           </figure>
           <figure class="review review--dark reveal" style="--d:1">
-            <blockquote class="review__quote">Робила тотальну реконструкцію після освітлення. Волосся стало щільним і живим вже після першого візиту.</blockquote>
-            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">С</span><span class="review__person"><strong>Софія Мельник</strong><em>Тотальна реконструкція</em></span></figcaption>
+            <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Іри Маринюк на Google Maps">
+            <blockquote class="review__quote">Я в захваті від сервісу та професійності майстра. Дуже все сподобалось, волосся неймовірно гладеньке та мʼяке.</blockquote>
+            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">І</span><span class="review__person"><strong>Іра Маринюк</strong><em>Google Maps ↗</em></span></figcaption>
+            </a>
           </figure>
           <figure class="review review--tint reveal" style="--d:2">
-            <blockquote class="review__quote">Холодне відновлення R3 повернуло волоссю силу та природний блиск. Уважний підхід і бездоганний результат.</blockquote>
-            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">Д</span><span class="review__person"><strong>Дарина Левченко</strong><em>Холодне відновлення R3</em></span></figcaption>
+            <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Каріни на Google Maps">
+            <blockquote class="review__quote">Такого волосся мені ще ніхто не робив. Це просто вау! Аліна дуже вправний майстер. Щиро рекомендую, після виходу з салону вас точно помітять.</blockquote>
+            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">К</span><span class="review__person"><strong>Каріна</strong><em>Google Maps ↗</em></span></figcaption>
+            </a>
           </figure>
           <figure class="review reveal" style="--d:3">
-            <blockquote class="review__quote">Кератин тримається вже третій місяць, а укладка займає десять хвилин замість години. Дуже дякую за консультацію та чесні поради.</blockquote>
-            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">М</span><span class="review__person"><strong>Марина Шевчук</strong><em>Кератин і ботокс</em></span></figcaption>
+            <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Ирини Емченко на Google Maps">
+            <blockquote class="review__quote">Майстер дуже комфортний, волосся шикарне, дуже задоволена.</blockquote>
+            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">И</span><span class="review__person"><strong>Ирина Емченко</strong><em>Google Maps ↗</em></span></figcaption>
+            </a>
           </figure>
           <figure class="review reveal" style="--d:4">
-            <blockquote class="review__quote">Замовляла ще й домашній догляд, і це найкраще рішення: волосся мʼяке та доглянуте між процедурами. Рекомендую всім подругам.</blockquote>
-            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">Т</span><span class="review__person"><strong>Тетяна Романюк</strong><em>Домашній догляд</em></span></figcaption>
+            <a class="review__link" href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" aria-label="Відгук Назара Мчедлішвілі на Google Maps">
+            <blockquote class="review__quote">Дівчина завжди робить волосся в цій студії, супер задоволена. Чудовий, уважний майстер. Рекомендуємо.</blockquote>
+            <figcaption class="review__author"><span class="review__avatar" aria-hidden="true">Н</span><span class="review__person"><strong>Назар Мчедлішвілі</strong><em>Google Maps ↗</em></span></figcaption>
+            </a>
           </figure>
         </div>
       </div>
+
+      <p class="reviews__cta reveal">
+        <a href="https://maps.app.goo.gl/aTDA15j9R3mrx5RTA" target="_blank" rel="noopener" class="btn btn--ghost">Усі відгуки на Google Maps <span class="arrow">↗</span></a>
+      </p>
     </div>
   </section>
 
